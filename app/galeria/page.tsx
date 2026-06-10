@@ -4,18 +4,22 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const photos = [
-  "/images/23.JPG",
-  "/images/24.JPG",
-  "/images/25.JPG",
-  "/images/26.jpg",
-  "/images/27.JPG",
-  "/images/28.JPG",
-  "/images/29.JPG",
-  "/images/30.JPG",
-  "/images/31.JPG",
-  "/images/32.jpg",
-  "/images/33.jpg",
-  "/images/34.JPG",
+  "/images/1.jpg",
+  "/images/10.jpg",
+  "/images/1090.jpg",
+  "/images/11.jpg",
+  "/images/1147.jpg",
+  "/images/12.jpg",
+  "/images/2.jpg",
+  "/images/3.jpg",
+  "/images/4.jpg",
+  "/images/5.jpg",
+  "/images/6.jpg",
+  "/images/7.jpg",
+  "/images/8.jpg",
+  "/images/858.jpg",
+  "/images/9.jpg",
+  "/images/993.jpg",
 ];
 
 export default function GalleryPage() {
