@@ -5,17 +5,17 @@ import ChapterTemplate from "@/components/vn/ChapterTemplate";
 export default function ChapterSeven() {
   const script = [
     {
-      text: "Existe um lugar onde tudo fica em paz."
+      text: "Nunca entendi muito bem por que o tempo passa diferente quando estou com você."
     },
     {
-      text: "E esse lugar pode ser um abraço."
+      text: "Pode ser um passeio simples, uma conversa qualquer ou só alguns minutos sem fazer nada."
     },
     {
       speaker: "Narrador",
-      text: "Foi ali que qualquer medo parecia desaparecer."
+      text: "Sem perceber, aquele lugar deixou de ser importante. O que fazia tudo valer a pena era simplesmente a companhia."
     },
     {
-      text: "Como se o mundo inteiro ficasse em silêncio por alguns segundos."
+      text: "E foi assim que descobri que paz tem o seu sorriso, a sua voz e o jeito bobo que só você consegue ter."
     }
   ];
 
@@ -23,10 +23,10 @@ export default function ChapterSeven() {
     <ChapterTemplate
       chapterNumber="VII"
       title="Abraços"
-      subtitle="O lugar mais seguro do mundo."
+      subtitle="Porque o melhor lugar sempre foi ao seu lado."
       image="/images/7.jpg"
       script={script}
-      endingMessage="Casa também pode ser uma pessoa."
+      endingMessage="Algumas pessoas fazem o mundo inteiro parecer mais leve."
       nextUrl="/story/chapter-8"
     />
   );
