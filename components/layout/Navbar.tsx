@@ -9,8 +9,21 @@ export default function Navbar() {
   const pathname = usePathname();
   const [liberado, setLiberado] = useState(false);
 
+  // 🔓 atualiza estado ao carregar + escuta desbloqueio
   useEffect(() => {
-    setLiberado(localStorage.getItem("jornadaConcluida") === "true");
+    const update = () => {
+      setLiberado(localStorage.getItem("jornadaConcluida") === "true");
+    };
+
+    update();
+
+    window.addEventListener("jornada:liberada", update);
+    window.addEventListener("storage", update);
+
+    return () => {
+      window.removeEventListener("jornada:liberada", update);
+      window.removeEventListener("storage", update);
+    };
   }, []);
 
   if (pathname === "/") return null;
@@ -37,6 +50,7 @@ export default function Navbar() {
               initial={{ opacity: 0, scale: 0.6, rotate: -20 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               exit={{ opacity: 0, scale: 0.6, rotate: 20 }}
+              transition={{ duration: 0.3 }}
               className="text-xs"
             >
               🔒
