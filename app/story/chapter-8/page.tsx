@@ -5,17 +5,20 @@ import ChapterTemplate from "@/components/vn/ChapterTemplate";
 export default function ChapterEight() {
   const script = [
     {
-      text: "Colecionamos dias que nunca serão esquecidos."
+      text: "A gente nunca precisou de grandes aventuras para criar boas lembranças."
     },
+
     {
-      text: "Conversas, passeios, olhares e sorrisos."
+      text: "Um cinema, uma volta sem destino ou qualquer desculpa para passar um tempo junto já era suficiente."
     },
+
     {
       speaker: "Narrador",
-      text: "Momentos que pareciam comuns, mas se tornaram eternos."
+      text: "Os dias mais especiais quase nunca foram planejados. Eles simplesmente aconteceram, entre conversas, piadas ruins e muitos sorrisos."
     },
+
     {
-      text: "Porque foram vividos ao seu lado."
+      text: "Hoje eu percebo que os momentos que mais gosto de lembrar são exatamente aqueles em que não existia pressa, só nós dois."
     }
   ];
 
@@ -23,10 +26,10 @@ export default function ChapterEight() {
     <ChapterTemplate
       chapterNumber="VIII"
       title="Dias Inesquecíveis"
-      subtitle="Memórias que o tempo não apaga."
+      subtitle="Os melhores momentos sempre foram os mais simples."
       image="/images/8.jpg"
       script={script}
-      endingMessage="Alguns dias merecem ser revividos para sempre."
+      endingMessage="Porque qualquer dia comum fica inesquecível quando é vivido ao seu lado."
       nextUrl="/story/chapter-9"
     />
   );
