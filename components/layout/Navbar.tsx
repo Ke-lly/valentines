@@ -35,15 +35,7 @@ export default function Navbar() {
           <Link href="/archive" className="hover:text-white transition">
             Arquivo
           </Link>
-          
-          {/* ÁREAS BLOQUEADAS: Apenas estas usam a lógica de bloqueio */}
-          <Link {...getLockedLinkProps("/galeria")}>
-            Galeria {!liberado && "🔒"}
-          </Link>
-          
-          <Link {...getLockedLinkProps("/carta")}>
-            Carta {!liberado && "🔒"}
-          </Link>
+
         </div>
       </div>
     </nav>
