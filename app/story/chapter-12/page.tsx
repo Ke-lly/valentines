@@ -1,29 +1,46 @@
 "use client";
 
+import { useEffect } from "react";
 import ChapterTemplate from "@/components/vn/ChapterTemplate";
 
 export default function ChapterTwelve() {
   const script = [
-    {
-      text: "Chegamos à última página."
-    },
-    {
-      text: "E pensar que tudo começou com dois amigos de escola."
-    },
+    { text: "Chegamos à última página." },
+    { text: "E pensar que tudo começou com dois amigos de escola." },
     {
       speaker: "Narrador",
-      text: "Entre trabalhos, conversas, passeios sem rumo e muitas risadas, fomos escrevendo uma história que aconteceu do jeito mais inesperado possível."
+      text: "Entre trabalhos, conversas, passeios sem rumo e muitas risadas, fomos escrevendo uma história que aconteceu do jeito mais inesperado possível.",
     },
     {
-      text: "Descobri que os melhores momentos nunca precisaram ser grandes viagens ou ocasiões especiais."
+      text: "Descobri que os melhores momentos nunca precisaram ser grandes viagens ou ocasiões especiais.",
     },
     {
-      text: "Bastava estar com você para um dia comum se tornar uma lembrança que eu gostaria de guardar para sempre."
+      text: "Bastava estar com você para um dia comum se tornar uma lembrança que eu gostaria de guardar para sempre.",
     },
     {
-      text: "E talvez seja exatamente isso que eu mais amo na nossa história: ela é simples, leve, divertida e, ao mesmo tempo, a mais bonita que eu já vivi."
-    }
+      text: "E talvez seja exatamente isso que eu mais amo na nossa história: ela é simples, leve, divertida e, ao mesmo tempo, a mais bonita que eu já vivi.",
+    },
   ];
+
+  // 🔓 DESBLOQUEIO FINAL DO SITE
+  useEffect(() => {
+    const unlock = () => {
+      localStorage.setItem("jornadaConcluida", "true");
+      window.dispatchEvent(new Event("jornada:liberada"));
+    };
+
+    // espera o usuário terminar o capítulo
+    const timer = setInterval(() => {
+      const done = localStorage.getItem("storyCompleted");
+
+      if (done === "true") {
+        unlock();
+        clearInterval(timer);
+      }
+    }, 500);
+
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <ChapterTemplate
