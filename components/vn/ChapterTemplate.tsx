@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import CinematicImage from "@/components/vn/CinematicImage";
@@ -50,6 +50,14 @@ export default function ChapterTemplate({
       setStoryFinished(true);
     }
   };
+
+  // 🔓 DESBLOQUEIO AUTOMÁTICO NO FINAL DO CAPÍTULO
+  useEffect(() => {
+    if (storyFinished) {
+      localStorage.setItem("jornadaConcluida", "true");
+      window.dispatchEvent(new Event("jornada:liberada"));
+    }
+  }, [storyFinished]);
 
   return (
     <main
