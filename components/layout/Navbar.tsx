@@ -9,7 +9,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const [liberado, setLiberado] = useState(false);
 
-  // 🔓 atualiza estado ao carregar + escuta desbloqueio
+  // 🔓 sincroniza estado corretamente + escuta desbloqueio
   useEffect(() => {
     const update = () => {
       setLiberado(localStorage.getItem("jornadaConcluida") === "true");
@@ -18,11 +18,9 @@ export default function Navbar() {
     update();
 
     window.addEventListener("jornada:liberada", update);
-    window.addEventListener("storage", update);
 
     return () => {
       window.removeEventListener("jornada:liberada", update);
-      window.removeEventListener("storage", update);
     };
   }, []);
 
@@ -50,7 +48,7 @@ export default function Navbar() {
               initial={{ opacity: 0, scale: 0.6, rotate: -20 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               exit={{ opacity: 0, scale: 0.6, rotate: 20 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.25 }}
               className="text-xs"
             >
               🔒
