@@ -5,28 +5,31 @@ import ChapterTemplate from "@/components/vn/ChapterTemplate";
 export default function ChapterFive() {
   const script = [
     {
-      text: "Toda história tem uma trilha sonora."
+      text: "A gente nunca precisou de uma música para lembrar um do outro."
     },
+
     {
-      text: "Algumas músicas nos levam de volta no tempo."
+      text: "Nossas melhores lembranças nasceram no meio de conversas aleatórias e risadas sem motivo."
     },
+
     {
       speaker: "Narrador",
-      text: "Bastam alguns segundos para lembrar exatamente como tudo aconteceu."
+      text: "Cada passeio ganhou uma trilha diferente: o barulho da cidade, o silêncio do caminho e duas pessoas falando sobre qualquer coisa."
     },
+
     {
-      text: "E sorrir novamente."
+      text: "Talvez a nossa história nunca tenha tido uma canção. Mas sempre teve a sua risada, e isso sempre foi suficiente."
     }
   ];
 
   return (
     <ChapterTemplate
       chapterNumber="V"
-      title="Nossa Trilha Sonora"
-      subtitle="Cada música guarda um pedaço da nossa história."
+      title="Sem Trilha Sonora"
+      subtitle="Porque a sua risada sempre foi a minha música favorita."
       image="/images/5.jpg"
       script={script}
-      endingMessage="Ainda escuto essas melodias quando penso em você."
+      endingMessage="Algumas histórias não precisam de uma canção para serem inesquecíveis."
       nextUrl="/story/chapter-6"
     />
   );
