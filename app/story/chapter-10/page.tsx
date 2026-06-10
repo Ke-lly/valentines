@@ -24,7 +24,7 @@ export default function ChapterTen() {
       chapterNumber="X"
       title="Hoje"
       subtitle="O presente mais bonito."
-      image="/images/10.JPG"
+      image="/images/10.jpg"
       script={script}
       endingMessage="E eu escolheria tudo outra vez."
       nextUrl="/story/chapter-11"

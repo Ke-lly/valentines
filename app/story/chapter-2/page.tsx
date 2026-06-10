@@ -31,7 +31,7 @@ export default function ChapterTwo() {
       chapterNumber="II"
       title="Primeiras Conversas"
       subtitle="Quando o tempo começou a passar diferente."
-      image="/images/2.JPG"
+      image="/images/2.jpg"
       script={script}
       endingMessage="Cada palavra aproximava um pouco mais."
       nextUrl="/story/chapter-3"

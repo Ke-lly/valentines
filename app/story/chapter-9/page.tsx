@@ -24,7 +24,7 @@ export default function ChapterNine() {
       chapterNumber="IX"
       title="Planos"
       subtitle="Sonhos compartilhados."
-      image="/images/9.JPG"
+      image="/images/9.jpg"
       script={script}
       endingMessage="Ainda existem muitas páginas para escrever."
       nextUrl="/story/chapter-10"

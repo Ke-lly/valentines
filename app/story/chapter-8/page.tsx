@@ -24,7 +24,7 @@ export default function ChapterEight() {
       chapterNumber="VIII"
       title="Dias Inesquecíveis"
       subtitle="Memórias que o tempo não apaga."
-      image="/images/8.JPG"
+      image="/images/8.jpg"
       script={script}
       endingMessage="Alguns dias merecem ser revividos para sempre."
       nextUrl="/story/chapter-9"

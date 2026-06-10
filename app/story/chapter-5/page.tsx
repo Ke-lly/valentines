@@ -24,7 +24,7 @@ export default function ChapterFive() {
       chapterNumber="V"
       title="Nossa Trilha Sonora"
       subtitle="Cada música guarda um pedaço da nossa história."
-      image="/images/5.JPG"
+      image="/images/5.jpg"
       script={script}
       endingMessage="Ainda escuto essas melodias quando penso em você."
       nextUrl="/story/chapter-6"

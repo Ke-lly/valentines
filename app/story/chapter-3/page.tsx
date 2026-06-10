@@ -24,7 +24,7 @@ export default function ChapterThree() {
       chapterNumber="III"
       title="Entre Risadas"
       subtitle="Os momentos simples se tornaram inesquecíveis."
-      image="/images/3.JPG"
+      image="/images/3.jpg"
       script={script}
       endingMessage="Cada sorriso virou uma lembrança."
       nextUrl="/story/chapter-4"

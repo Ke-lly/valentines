@@ -24,7 +24,7 @@ export default function ChapterFour() {
       chapterNumber="IV"
       title="Pequenos Detalhes"
       subtitle="São eles que mudam tudo."
-      image="/images/4.JPG"
+      image="/images/4.jpg"
       script={script}
       endingMessage="As melhores histórias são feitas de detalhes."
       nextUrl="/story/chapter-5"

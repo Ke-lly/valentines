@@ -24,7 +24,7 @@ export default function ChapterTwelve() {
       chapterNumber="XII"
       title="12 de Junho"
       subtitle="Uma pequena coleção de memórias."
-      image="/images/12.JPG"
+      image="/images/12.jpg"
       script={script}
       endingMessage="Fim do capítulo... Mas nunca da nossa história. ❤️"
       nextUrl="/carta"

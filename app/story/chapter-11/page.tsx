@@ -24,7 +24,7 @@ export default function ChapterEleven() {
       chapterNumber="XI"
       title="Uma Carta"
       subtitle="Palavras escritas com carinho."
-      image="/images/11.JPG"
+      image="/images/11.jpg"
       script={script}
       endingMessage="Alguns sentimentos vivem além das palavras."
       nextUrl="/story/chapter-12"

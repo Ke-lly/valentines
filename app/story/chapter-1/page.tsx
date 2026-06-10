@@ -31,7 +31,7 @@ export default function ChapterOne() {
       chapterNumber="I"
       title="O Começo"
       subtitle="Algumas histórias simplesmente acontecem."
-      image="/images/1.JPG"
+      image="/images/1.jpg"
       script={script}
       endingMessage="Foi aqui que tudo começou."
       nextUrl="/story/chapter-2"

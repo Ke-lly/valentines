@@ -27,7 +27,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-8 py-5 flex items-center justify-between">
         
         <Link href="/" className="font-serif text-2xl text-[#f5ebe0]">
-          Volume XXII
+          Valentine's Day
         </Link>
 
         <div className="flex gap-8 text-xs md:text-sm uppercase tracking-[0.2em] text-[#cfc2b4]">

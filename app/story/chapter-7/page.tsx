@@ -24,7 +24,7 @@ export default function ChapterSeven() {
       chapterNumber="VII"
       title="Abraços"
       subtitle="O lugar mais seguro do mundo."
-      image="/images/7.JPG"
+      image="/images/7.jpg"
       script={script}
       endingMessage="Casa também pode ser uma pessoa."
       nextUrl="/story/chapter-8"

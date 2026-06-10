@@ -24,7 +24,7 @@ export default function ChapterSix() {
       chapterNumber="VI"
       title="Fotografias"
       subtitle="Momentos guardados para sempre."
-      image="/images/6.JPG"
+      image="/images/6.jpg"
       script={script}
       endingMessage="As memórias continuam vivas."
       nextUrl="/story/chapter-7"

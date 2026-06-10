@@ -68,61 +68,100 @@ const chaptersData = [
 
 export default function ArchivePage() {
   return (
-    <main className="min-h-screen text-[#f5ebe0] px-4 md:px-8 pt-28 pb-20 relative overflow-hidden bg-[radial-gradient(circle_at_top,#3a1025_0%,#0b0b10_60%,#050507_100%)]">
-         
-      {/* Glow decorativo */}
-      <div className="absolute w-[500px] h-[500px] bg-[#8c6a5d]/10 blur-3xl rounded-full top-[-200px] right-[-100px] pointer-events-none" />
+    <main className="min-h-screen text-[#fff6f8] px-4 md:px-8 pt-28 pb-20 relative overflow-hidden bg-[radial-gradient(circle_at_top,#56172d_0%,#180812_45%,#060507_100%)]">
+
+      {/* Glow superior */}
+      <div className="absolute w-[650px] h-[650px] bg-[#b03b65]/15 blur-[140px] rounded-full -top-[220px] -left-[150px] pointer-events-none" />
+
+      {/* Glow inferior */}
+      <div className="absolute w-[500px] h-[500px] bg-[#ffb8c8]/8 blur-[120px] rounded-full -bottom-[180px] -right-[120px] pointer-events-none" />
+
+      {/* Textura */}
+      <div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle,#ffffff 1px,transparent 1px)",
+          backgroundSize: "34px 34px",
+        }}
+      />
 
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 35 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         className="relative z-10 max-w-5xl mx-auto"
       >
         <Link
           href="/"
-          className="inline-block text-[#d4c1a7] hover:text-white transition mb-6"
+          className="inline-block text-[#f1c9d5] hover:text-white transition duration-300 mb-8"
         >
           ← Fechar o Livro
         </Link>
 
-        <h1 className="text-4xl md:text-6xl font-serif">
+        <p className="uppercase tracking-[0.45em] text-xs text-[#d89fb2]">
+          Valentine's Day Edition
+        </p>
+
+        <h1 className="text-5xl md:text-7xl font-serif mt-4">
           Sumário
         </h1>
 
-        <p className="mt-4 text-[#cfc2b4] text-lg max-w-xl leading-relaxed">
+        <p className="mt-6 text-[#e5ccd4] text-lg max-w-2xl leading-relaxed">
           Cada capítulo guarda um instante da nossa história,
-          daqueles que merecem ser lembrados para sempre.
+          daqueles que fazem o tempo parar e permanecem vivos
+          sempre que voltamos a lembrar.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-6 mt-12">
+        <div className="grid md:grid-cols-2 gap-7 mt-14">
           {chaptersData.map((chapter) => (
             <Link key={chapter.id} href={`/story/chapter-${chapter.id}`}>
               <motion.div
                 whileHover={{
-                  scale: 1.02,
-                  y: -4,
+                  scale: 1.03,
+                  y: -5,
                 }}
                 transition={{ duration: 0.3 }}
-                className="border border-[#3a1c22] bg-[#2a1418]/70 backdrop-blur-sm rounded-3xl p-6 md:p-8 h-full cursor-pointer hover:border-[#d4c1a7]/70 transition-all duration-500 hover:shadow-[0_0_30px_rgba(212,193,167,0.12)]"
+                className="
+                  h-full
+                  rounded-3xl
+                  p-7
+                  border
+                  border-[#6d2943]
+                  bg-[#2a1018]/75
+                  backdrop-blur-xl
+                  transition-all
+                  duration-500
+                  hover:border-[#f0c6d4]
+                  hover:bg-[#34131e]/85
+                  hover:shadow-[0_0_40px_rgba(240,198,212,0.15)]
+                "
               >
-                <p className="uppercase text-xs tracking-[0.25em] text-[#d4c1a7]">
+                <p className="uppercase tracking-[0.25em] text-xs text-[#eab5c5]">
                   Capítulo {chapter.id}
                 </p>
 
-                <h2 className="text-2xl md:text-3xl mt-3 font-serif">
+                <h2 className="text-3xl font-serif mt-4 text-white">
                   {chapter.title}
                 </h2>
 
-                <p className="mt-3 text-[#cfc2b4] text-sm md:text-base leading-relaxed">
+                <p className="mt-4 text-[#d8c3ca] leading-relaxed">
                   {chapter.desc}
                 </p>
               </motion.div>
             </Link>
           ))}
         </div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.45 }}
+          transition={{ delay: 1.8 }}
+          className="text-center mt-16 uppercase tracking-[0.35em] text-xs text-[#b88698]"
+        >
+          12 capítulos • uma única história
+        </motion.p>
       </motion.div>
     </main>
   );
 }
-
