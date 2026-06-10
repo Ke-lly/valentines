@@ -5,28 +5,31 @@ import ChapterTemplate from "@/components/vn/ChapterTemplate";
 export default function ChapterEleven() {
   const script = [
     {
-      text: "Existem sentimentos difíceis de explicar."
+      text: "Você tem um jeito engraçado de deixar qualquer dia melhor."
     },
+
     {
-      text: "Mesmo assim, vale a pena tentar."
+      text: "Faz piadas sem sentido, fala bobagens e consegue me fazer rir até quando eu tento ficar séria."
     },
+
     {
       speaker: "Narrador",
-      text: "Porque algumas pessoas merecem ouvir o quanto são especiais."
+      text: "Existe uma leveza em estar ao seu lado que transforma momentos comuns nas melhores lembranças."
     },
+
     {
-      text: "Mesmo quando as palavras parecem pequenas demais."
+      text: "E acho que foi exatamente por isso que, sem perceber, você acabou se tornando a minha pessoa favorita."
     }
   ];
 
   return (
     <ChapterTemplate
       chapterNumber="XI"
-      title="Uma Carta"
-      subtitle="Palavras escritas com carinho."
+      title="Você"
+      subtitle="É impossível falar da nossa história sem falar do seu jeito."
       image="/images/11.jpg"
       script={script}
-      endingMessage="Alguns sentimentos vivem além das palavras."
+      endingMessage="Talvez o meu lugar favorito sempre tenha sido ao seu lado."
       nextUrl="/story/chapter-12"
     />
   );
