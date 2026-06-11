@@ -9,40 +9,36 @@ interface Props {
 export default function CinematicImage({ src }: Props) {
   return (
     <motion.div
-      initial={{ scale: 1.05, opacity: 0 }}
-      whileInView={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 1.5 }}
-      className="
-        relative
-        w-full
-        mt-10 md:mt-16
-        rounded-[24px] md:rounded-[40px]
-        overflow-hidden
-        bg-[#1a0f15]
-        border border-[#6d3341]/30
-        shadow-[0_0_35px_rgba(122,30,70,0.20)]
-        flex
-        items-center
-        justify-center
-        p-2 md:p-4
-      "
+      initial={{ opacity: 0, scale: 0.95, y: 30 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      className="flex justify-center mt-10 md:mt-16"
     >
-      <img
-        src={src}
-        alt="Capítulo"
+      <div
         className="
-          w-full
-          h-auto
-          max-h-[75vh]
-          object-contain
-          rounded-[18px]
-          transition-transform
-          duration-700
-          hover:scale-[1.02]
+          inline-block
+          bg-[#2a1418]/80
+          backdrop-blur-xl
+          border border-[#6d3341]/40
+          rounded-[24px]
+          p-3
+          shadow-[0_0_35px_rgba(122,30,70,0.20)]
         "
-      />
-
-      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none rounded-[24px] md:rounded-[40px]" />
+      >
+        <img
+          src={src}
+          alt="Capítulo"
+          className="
+            block
+            max-w-full
+            w-auto
+            h-auto
+            max-h-[75vh]
+            rounded-[18px]
+            object-contain
+          "
+        />
+      </div>
     </motion.div>
   );
 }
