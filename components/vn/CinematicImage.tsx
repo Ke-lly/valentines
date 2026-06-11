@@ -1,37 +1,29 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 interface Props {
   src: string;
-  onLoaded?: () => void;
 }
 
-export default function CinematicImage({ src, onLoaded }: Props) {
+export default function CinematicImage({ src }: Props) {
   return (
     <motion.div
-      key={src}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className="flex justify-center w-full"
+      initial={{ scale: 1.1, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 1.8 }}
+      className="relative w-full h-[700px] overflow-hidden rounded-[40px] mt-16"
     >
-      <img
-        src={src}
-        alt=""
-        draggable={false}
-        onLoad={onLoaded}
-        className="
-          block
-          w-auto
-          max-w-full
-          h-auto
-          max-h-[75vh]
-          rounded-[28px]
-          object-contain
-          select-none
-        "
-      />
+
+
+<img 
+  src={src} 
+  className="w-full h-full object-cover" // <-- Se estiver 'object-cover', ele corta a imagem para preencher.
+/>
+
+
+      <div className="absolute inset-0 bg-black/30" />
     </motion.div>
   );
 }
