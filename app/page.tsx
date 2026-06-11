@@ -1,16 +1,28 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const [transition, setTransition] = useState(false);
+  const router = useRouter();
+
+  const handleOpen = () => {
+    setTransition(true);
+
+    setTimeout(() => {
+      router.push("/archive");
+    }, 1800);
+  };
+
   return (
     <main className="min-h-screen text-[#fff5f7] flex items-center justify-center px-6 overflow-hidden relative bg-[radial-gradient(circle_at_top,#6b1f3c_0%,#2d1020_35%,#12080f_70%,#050507_100%)]">
 
       {/* FUNDO */}
       <div className="absolute inset-0 z-0 overflow-hidden">
 
-        {/* Textura */}
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -38,12 +50,7 @@ export default function Home() {
           <motion.div
             key={i}
             className="absolute text-pink-300 text-sm"
-            initial={{
-              opacity: 0,
-              x: heart.x,
-              y: -20,
-              scale: 0.8,
-            }}
+            initial={{ opacity: 0, x: heart.x, y: -20, scale: 0.8 }}
             animate={{
               opacity: [0, 1, 0],
               y: "110vh",
@@ -106,10 +113,7 @@ export default function Home() {
           }}
           transition={{
             duration: 1.4,
-            scale: {
-              duration: 6,
-              repeat: Infinity,
-            },
+            scale: { duration: 6, repeat: Infinity },
           }}
           className="text-7xl md:text-8xl mt-6 font-serif"
         >
@@ -147,17 +151,18 @@ export default function Home() {
           onde sempre vale a pena voltar."
         </motion.p>
 
+        {/* 🔥 BOTÃO NOVO */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5 }}
         >
-          <Link
-            href="/archive"
+          <button
+            onClick={handleOpen}
             className="mt-10 inline-block border border-[#ffb6cf] px-9 py-4 rounded-full transition-all duration-500 hover:bg-[#ffb6cf] hover:text-[#1a0d14] hover:scale-105 hover:shadow-[0_0_35px_rgba(255,140,180,0.45)]"
           >
             Abrir o Livro
-          </Link>
+          </button>
         </motion.div>
 
         <motion.p
@@ -170,6 +175,44 @@ export default function Home() {
         </motion.p>
 
       </section>
+
+      {/* 🌑 TRANSIÇÃO CINEMATOGRÁFICA */}
+      <AnimatePresence>
+        {transition && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1 }}
+              className="text-center"
+            >
+              <motion.p
+                className="text-[#ffb6cf] uppercase tracking-[0.4em] text-sm"
+                animate={{ opacity: [0, 1, 0.6, 1] }}
+                transition={{ duration: 1.5 }}
+              >
+                Abrindo o livro...
+              </motion.p>
+
+              <motion.div
+                className="mt-6 w-16 h-16 border-2 border-[#ffb6cf] border-t-transparent rounded-full mx-auto"
+                animate={{ rotate: 360 }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 1,
+                  ease: "linear",
+                }}
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
     </main>
   );
 }
