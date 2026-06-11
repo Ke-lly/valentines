@@ -1,15 +1,14 @@
 @import "tailwindcss";
 
+/* globals.css */
 html, body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-
   color: #ffe4e6;
   font-family: serif;
   overflow-x: hidden;
-
-  background: radial-gradient(circle at top, #3a1025 0%, #0b0b10 60%, #050507 100%) !important;
+  background-color: #050507; /* Apenas uma cor sólida */
 }
 
 /* Glow base estilo VN (mantenha se você usa em outros lugares) */
