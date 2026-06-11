@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import CinematicImage from "@/components/vn/CinematicImage";
@@ -37,8 +37,6 @@ export default function ChapterTemplate({
 }: ChapterTemplateProps) {
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [storyFinished, setStoryFinished] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(false);
-
 
   const hasScript = script && script.length > 0;
   const currentLine = hasScript ? script[currentLineIndex] : null;
@@ -52,14 +50,6 @@ export default function ChapterTemplate({
       setStoryFinished(true);
     }
   };
-
-  // 🔓 DESBLOQUEIO AUTOMÁTICO NO FINAL DO CAPÍTULO
-  useEffect(() => {
-    if (storyFinished) {
-      localStorage.setItem("jornadaConcluida", "true");
-      window.dispatchEvent(new Event("jornada:liberada"));
-    }
-  }, [storyFinished]);
 
   return (
     <main
@@ -115,35 +105,20 @@ export default function ChapterTemplate({
 
         </div>
 
-       {image && (
-  <motion.div
-    initial={{ opacity: 0, scale: 0.96 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 1 }}
-    className="mt-10 flex justify-center"
-  >
-    <div
-      className="
-        inline-block
-        p-3
-        rounded-[30px]
-        bg-[#2a1418]/75
-        backdrop-blur-xl
-        border border-[#5c2b39]
-        shadow-[0_0_60px_rgba(120,30,60,0.25)]
-      "
-    >
-     <CinematicImage
-  src={image}
-  onLoaded={() => setImageLoaded(true)}
-/> 
-    </div>
-  </motion.div>
-)}
+        {image && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="mt-10 rounded-[28px] overflow-hidden border border-[#5c2b39] shadow-[0_0_60px_rgba(120,30,60,0.25)] max-w-2xl mx-auto relative"
+          >
+            <CinematicImage src={image} />
+          </motion.div>
+        )}
 
         <AnimatePresence mode="wait">
 
-          {!storyFinished && currentLine && imageLoaded && (
+          {!storyFinished && currentLine && (
 
             <motion.div
               key={currentLineIndex}
@@ -228,15 +203,14 @@ export default function ChapterTemplate({
 
                   <motion.div whileHover={{ scale: 1.03 }}>
 
-<Link
-  href={nextUrl}
-  onClick={(e) => e.stopPropagation()}
-  className="border border-[#d4c1a7] bg-[#2a1418]/70 text-[#f8ede8] px-10 py-4 rounded-full hover:bg-[#d4c1a7] hover:text-[#2a1418] transition-all duration-500 uppercase tracking-[0.2em]"
->
-  Virar a Página ✨
-</Link>
+                    <Link
+                      href={nextUrl}
+                      className="border border-[#d4c1a7] bg-[#2a1418]/70 text-[#f8ede8] px-10 py-4 rounded-full hover:bg-[#d4c1a7] hover:text-[#2a1418] transition-all duration-500 uppercase tracking-[0.2em]"
+                    >
+                      Virar a Página ✨
+                    </Link>
 
-</motion.div>
+                  </motion.div>
 
                 )}
 
@@ -249,7 +223,6 @@ export default function ChapterTemplate({
         </AnimatePresence>
 
       </div>
-      
     </main>
   );
 }
