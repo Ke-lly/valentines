@@ -106,7 +106,7 @@ export default function LetterPage() {
             </p>
 
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif mt-6 leading-tight text-[#fff5ef]">
-              Para você,
+              Meu amor,
             </h1>
 
             <div className="mt-12 space-y-8 text-[#efe2d8] leading-relaxed text-lg md:text-xl">
@@ -165,7 +165,7 @@ export default function LetterPage() {
               <div className="mt-20 pt-10 border-t border-[#d4c1a7]/20 text-right">
 
                 <p className="text-[#e6c7a1] italic tracking-wide">
-                  Com todo o meu carinho,
+                  Com todo o meu amor,
                 </p>
 
                 <p className="text-3xl font-serif mt-3 text-[#fff5ef]">
