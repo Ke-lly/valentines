@@ -82,8 +82,8 @@ export default function ChapterTemplate({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
-              // Container com flex e flex-col para forçar o layout
-              className="mt-10 max-w-xl mx-auto bg-[#2a1418]/75 backdrop-blur-xl border border-[#5b2d39] rounded-[30px] p-8 shadow-2xl min-h-[280px] flex flex-col"
+              // flex flex-col garante a estrutura, flex-grow no div interno faz a caixa crescer/encolher dinamicamente
+              className="mt-10 max-w-xl mx-auto bg-[#2a1418]/75 backdrop-blur-xl border border-[#5b2d39] rounded-[30px] p-8 shadow-2xl flex flex-col"
             >
               <div className="flex-grow">
                 {currentLine.speaker && (
@@ -96,7 +96,7 @@ export default function ChapterTemplate({
                 </div>
               </div>
 
-              {/* mt-auto empurra este bloco sempre para baixo */}
+              {/* Este bloco agora se mantém na parte inferior da caixa de forma automática */}
               <div className="mt-8 flex justify-between text-xs text-[#a88f8f] uppercase tracking-[0.15em]">
                 <span>{currentLineIndex + 1} / {script.length}</span>
                 <span className="animate-pulse">Clique para continuar</span>
