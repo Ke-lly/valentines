@@ -3,13 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [liberado, setLiberado] = useState(false);
 
-  // 🔓 sincronização correta
   useEffect(() => {
     const update = () => {
       const value = localStorage.getItem("jornadaConcluida") === "true";
@@ -31,49 +29,17 @@ export default function Navbar() {
 
   const LockedLink = ({ href, children }: any) => {
     return (
-      <div className="flex items-center gap-2">
-        <Link
-          href={liberado ? href : "#"}
-          onClick={(e) => !liberado && e.preventDefault()}
-          className={`transition ${
-            liberado
-              ? "hover:text-white"
-              : "opacity-40 cursor-not-allowed pointer-events-none"
-          }`}
-        >
-          {children}
-        </Link>
-
-        {/* 🔒 ICONE */}
-        <AnimatePresence mode="wait">
-          {!liberado ? (
-            <motion.span
-              key="lock"
-              initial={{ opacity: 0, scale: 0.6, rotate: -20 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              exit={{ opacity: 0, scale: 0.6, rotate: 20 }}
-              transition={{ duration: 0.25 }}
-              className="text-xs"
-            >
-              🔒
-            </motion.span>
-          ) : (
-            <motion.span
-              key="unlock"
-              initial={{ opacity: 0, scale: 0.3, rotate: -180 }}
-              animate={{
-                opacity: 1,
-                scale: [0.3, 1.2, 1],
-                rotate: 0,
-              }}
-              transition={{ duration: 0.6 }}
-              className="text-green-300 text-xs"
-            >
-              🔓
-            </motion.span>
-          )}
-        </AnimatePresence>
-      </div>
+      <Link
+        href={liberado ? href : "#"}
+        onClick={(e) => !liberado && e.preventDefault()}
+        className={`transition ${
+          liberado
+            ? "hover:text-white"
+            : "opacity-40 cursor-not-allowed pointer-events-none"
+        }`}
+      >
+        {children}
+      </Link>
     );
   };
 
