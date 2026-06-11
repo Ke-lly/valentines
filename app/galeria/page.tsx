@@ -62,7 +62,8 @@ export default function GalleryPage() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 mt-16 md:mt-20">
+        {/* GALERIA ESTILO ÁLBUM */}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 mt-16 md:mt-20">
 
           {photos.map((photo, index) => (
 
@@ -71,21 +72,20 @@ export default function GalleryPage() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{
-                scale: 1.03,
-                rotate: 1,
+                scale: 1.02,
+                rotate: 0,
               }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="group"
+              className={`group break-inside-avoid mb-6 ${
+                index % 2 === 0 ? "rotate-1" : "-rotate-1"
+              } hover:rotate-0`}
             >
 
               <div
                 className="
-                  relative
-                  aspect-[3/4]
-                  w-full
-                  rounded-[24px]
                   overflow-hidden
+                  rounded-[26px]
                   p-3
                   bg-[#2a1418]/75
                   backdrop-blur-xl
@@ -101,18 +101,17 @@ export default function GalleryPage() {
                 <Image
                   src={photo}
                   alt={`Memória ${index + 1}`}
-                  fill
+                  width={900}
+                  height={1200}
                   className="
-                    object-contain
+                    w-full
+                    h-auto
                     rounded-[18px]
-                    p-1
                     transition-transform
                     duration-700
-                    group-hover:scale-105
+                    group-hover:scale-[1.03]
                   "
                 />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-[24px] pointer-events-none" />
 
               </div>
 
