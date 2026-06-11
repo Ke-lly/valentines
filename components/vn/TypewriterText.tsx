@@ -13,7 +13,7 @@ export default function TypewriterText({ text }: { text: string }) {
       i++;
 
       if (i >= text.length) clearInterval(interval);
-    }, 30);
+    }, 60);
 
     return () => clearInterval(interval);
   }, [text]);
