@@ -22,39 +22,48 @@ export default function Home() {
 
         {/* Estrelas */}
         {[
-          { x: "5vw", d: 4, delay: 0 },
-          { x: "12vw", d: 5, delay: 0.5 },
-          { x: "20vw", d: 6, delay: 1 },
-          { x: "28vw", d: 4.5, delay: 1.5 },
-          { x: "36vw", d: 5.5, delay: 2 },
-          { x: "44vw", d: 4.8, delay: 0.8 },
-          { x: "52vw", d: 5.2, delay: 1.2 },
-          { x: "60vw", d: 6, delay: 2.5 },
-          { x: "68vw", d: 4.5, delay: 0.3 },
-          { x: "76vw", d: 5.5, delay: 1.8 },
-          { x: "84vw", d: 4.2, delay: 2.2 },
-          { x: "92vw", d: 5.8, delay: 0.7 },
-        ].map((star, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-[2px] h-[2px] bg-white rounded-full"
-            initial={{
-              opacity: 0,
-              x: star.x,
-              y: -10,
-            }}
-            animate={{
-              opacity: [0, 1, 0],
-              y: "110vh",
-            }}
-            transition={{
-              duration: star.d,
-              repeat: Infinity,
-              delay: star.delay,
-              ease: "linear",
-            }}
-          />
-        ))}
+  { x: "5vw", d: 6, delay: 0 },
+  { x: "12vw", d: 7, delay: 0.5 },
+  { x: "20vw", d: 6.5, delay: 1 },
+  { x: "28vw", d: 7.2, delay: 1.5 },
+  { x: "36vw", d: 6.8, delay: 2 },
+  { x: "44vw", d: 7.5, delay: 0.8 },
+  { x: "52vw", d: 6.3, delay: 1.2 },
+  { x: "60vw", d: 7.8, delay: 2.5 },
+  { x: "68vw", d: 6.6, delay: 0.3 },
+  { x: "76vw", d: 7.1, delay: 1.8 },
+  { x: "84vw", d: 6.2, delay: 2.2 },
+  { x: "92vw", d: 7.4, delay: 0.7 },
+].map((heart, i) => (
+  <motion.div
+    key={i}
+    className="absolute text-pink-300 text-sm"
+    initial={{
+      opacity: 0,
+      x: heart.x,
+      y: -20,
+      rotate: 0,
+    }}
+    animate={{
+      opacity: [0, 1, 0],
+      y: "110vh",
+      rotate: [0, 180, 360],
+      x: [
+        heart.x,
+        `calc(${heart.x} + 10px)`,
+        `calc(${heart.x} - 10px)`,
+      ],
+    }}
+    transition={{
+      duration: heart.d,
+      repeat: Infinity,
+      delay: heart.delay,
+      ease: "linear",
+    }}
+  >
+    ❤
+  </motion.div>
+))}
 
         {/* Glow superior */}
         <div className="absolute w-[700px] h-[700px] bg-[#ff5e95]/20 blur-[120px] rounded-full -top-[200px] -left-[150px] animate-pulse" />
