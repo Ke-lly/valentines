@@ -82,17 +82,21 @@ export default function ChapterTemplate({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
-              // Ajustes feitos: max-w-xl + mx-auto centralizam e limitam o tamanho da caixa
-              className="mt-10 max-w-xl mx-auto bg-[#2a1418]/75 backdrop-blur-xl border border-[#5b2d39] rounded-[30px] p-8 shadow-2xl min-h-[180px]"
+              // Container com flex e flex-col para forçar o layout
+              className="mt-10 max-w-xl mx-auto bg-[#2a1418]/75 backdrop-blur-xl border border-[#5b2d39] rounded-[30px] p-8 shadow-2xl min-h-[280px] flex flex-col"
             >
-              {currentLine.speaker && (
-                <p className="uppercase tracking-[0.3em] text-sm text-[#d4c1a7] mb-4 font-semibold">
-                  {currentLine.speaker}
-                </p>
-              )}
-              <div className="text-xl leading-relaxed text-[#f8ede8]">
-                <TypewriterText text={currentLine.text} />
+              <div className="flex-grow">
+                {currentLine.speaker && (
+                  <p className="uppercase tracking-[0.3em] text-sm text-[#d4c1a7] mb-4 font-semibold">
+                    {currentLine.speaker}
+                  </p>
+                )}
+                <div className="text-xl leading-relaxed text-[#f8ede8]">
+                  <TypewriterText text={currentLine.text} />
+                </div>
               </div>
+
+              {/* mt-auto empurra este bloco sempre para baixo */}
               <div className="mt-8 flex justify-between text-xs text-[#a88f8f] uppercase tracking-[0.15em]">
                 <span>{currentLineIndex + 1} / {script.length}</span>
                 <span className="animate-pulse">Clique para continuar</span>
