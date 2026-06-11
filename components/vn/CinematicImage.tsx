@@ -1,31 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 interface Props {
   src: string;
+  onLoaded?: () => void;
 }
 
-export default function CinematicImage({ src }: Props) {
+export default function CinematicImage({ src, onLoaded }: Props) {
   return (
     <motion.div
       key={src}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{
-        duration: 0.8,
-        ease: "easeOut",
-      }}
+      transition={{ duration: 0.6 }}
       className="flex justify-center w-full"
     >
-      <Image
+      <img
         src={src}
         alt=""
-        width={1200}
-        height={1600}
-        priority
         draggable={false}
+        onLoad={onLoaded}
         className="
           block
           w-auto
