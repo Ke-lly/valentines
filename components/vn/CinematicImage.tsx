@@ -9,36 +9,26 @@ interface Props {
 export default function CinematicImage({ src }: Props) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95, y: 30 }}
-      whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ duration: 1 }}
-      className="flex justify-center mt-10 md:mt-16"
+      initial={{ opacity: 0, scale: 1.03 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1.2 }}
+      viewport={{ once: true }}
+      className="flex justify-center w-full"
     >
-      <div
+      <img
+        src={src}
+        alt=""
         className="
-          inline-block
-          bg-[#2a1418]/80
-          backdrop-blur-xl
-          border border-[#6d3341]/40
-          rounded-[24px]
-          p-3
-          shadow-[0_0_35px_rgba(122,30,70,0.20)]
+          w-auto
+          max-w-full
+          h-auto
+          max-h-[75vh]
+          rounded-[28px]
+          object-contain
+          select-none
         "
-      >
-        <img
-          src={src}
-          alt="Capítulo"
-          className="
-            block
-            max-w-full
-            w-auto
-            h-auto
-            max-h-[75vh]
-            rounded-[18px]
-            object-contain
-          "
-        />
-      </div>
+        draggable={false}
+      />
     </motion.div>
   );
 }
