@@ -9,7 +9,7 @@ export default function ChapterTwo() {
     },
 
     {
-      text: "Éramos aqueles amigos de escola que sempre acabavam na mesma equipe."
+      text: "Éramos aqueles amigos de escola que apenas tinham amigos em comum e acabavam ficando nas mesmas equipes."
     },
 
     {
@@ -22,7 +22,7 @@ export default function ChapterTwo() {
     },
 
     {
-      text: "Sem perceber, uma amizade de anos começou a escrever uma história completamente nova."
+      text: "Sem perceber, uma amizade começou a escrever uma história completamente nova."
     }
   ];
 
