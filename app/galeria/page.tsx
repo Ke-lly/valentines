@@ -1,3 +1,4 @@
+```tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -23,7 +24,7 @@ const photos = [
 
 export default function GalleryPage() {
   return (
-    <main className="min-h-screen text-[#f5ebe0] px-8 pt-32 pb-20 overflow-hidden relative bg-[radial-gradient(circle_at_top,#3a1025_0%,#0b0b10_60%,#050507_100%)]">
+    <main className="min-h-screen text-[#f5ebe0] px-5 md:px-8 pt-28 md:pt-32 pb-20 overflow-hidden relative bg-[radial-gradient(circle_at_top,#3a1025_0%,#0b0b10_60%,#050507_100%)]">
 
       {/* Glows */}
       <div className="absolute w-[700px] h-[700px] bg-[#7a1e46]/20 blur-[180px] rounded-full -top-[250px] -right-[250px]" />
@@ -48,7 +49,6 @@ export default function GalleryPage() {
           transition={{ duration: 1 }}
           className="text-center"
         >
-
           <p className="uppercase tracking-[0.45em] text-sm text-[#e6c7a1]">
             Valentine's Day
           </p>
@@ -57,14 +57,13 @@ export default function GalleryPage() {
             Nossa Galeria
           </h1>
 
-          <p className="mt-6 text-[#d6c8ba] text-lg max-w-2xl mx-auto leading-relaxed italic">
+          <p className="mt-6 text-[#d6c8ba] text-base md:text-lg max-w-2xl mx-auto leading-relaxed italic">
             Algumas lembranças merecem permanecer exatamente como foram vividas:
             espontâneas, simples e inesquecíveis.
           </p>
-
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 mt-16 md:mt-20">
 
           {photos.map((photo, index) => (
 
@@ -76,37 +75,45 @@ export default function GalleryPage() {
                 scale: 1.03,
                 rotate: 1,
               }}
-              transition={{
-                duration: 0.5,
-              }}
+              transition={{ duration: 0.5 }}
               viewport={{ once: true }}
               className="group"
             >
 
-              <div className="
-                relative
-                h-[430px]
-                rounded-[24px]
-                overflow-hidden
-                p-3
-                bg-[#2a1418]/75
-                backdrop-blur-xl
-                border border-[#6d3341]/40
-                shadow-[0_0_35px_rgba(122,30,70,0.20)]
-                transition-all
-                duration-500
-                group-hover:border-[#e6c7a1]/60
-                group-hover:shadow-[0_0_60px_rgba(212,193,167,0.20)]
-              ">
+              <div
+                className="
+                  relative
+                  aspect-[3/4]
+                  w-full
+                  rounded-[24px]
+                  overflow-hidden
+                  p-3
+                  bg-[#2a1418]/75
+                  backdrop-blur-xl
+                  border border-[#6d3341]/40
+                  shadow-[0_0_35px_rgba(122,30,70,0.20)]
+                  transition-all
+                  duration-500
+                  group-hover:border-[#e6c7a1]/60
+                  group-hover:shadow-[0_0_60px_rgba(212,193,167,0.20)]
+                "
+              >
 
                 <Image
                   src={photo}
                   alt={`Memória ${index + 1}`}
                   fill
-                  className="object-cover rounded-[18px]"
+                  className="
+                    object-contain
+                    rounded-[18px]
+                    p-1
+                    transition-transform
+                    duration-700
+                    group-hover:scale-105
+                  "
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent rounded-[24px]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-[24px] pointer-events-none" />
 
               </div>
 
@@ -120,4 +127,4 @@ export default function GalleryPage() {
     </main>
   );
 }
-
+```
