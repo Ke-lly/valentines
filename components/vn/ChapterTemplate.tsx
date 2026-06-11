@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import CinematicImage from "@/components/vn/CinematicImage";
 import ChapterEnding from "@/components/vn/ChapterEnding";
 import TypewriterText from "@/components/vn/TypewriterText";
+import { useRouter } from "next/navigation";
 
 export type Line = {
   speaker?: string;
@@ -37,6 +38,9 @@ export default function ChapterTemplate({
 }: ChapterTemplateProps) {
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [storyFinished, setStoryFinished] = useState(false);
+
+  const router = useRouter();
+const [transitioning, setTransitioning] = useState(false);
 
   const hasScript = script && script.length > 0;
   const currentLine = hasScript ? script[currentLineIndex] : null;
@@ -223,14 +227,22 @@ export default function ChapterTemplate({
 
                   <motion.div whileHover={{ scale: 1.03 }}>
 
-                    <Link
-                      href={nextUrl}
-                      className="border border-[#d4c1a7] bg-[#2a1418]/70 text-[#f8ede8] px-10 py-4 rounded-full hover:bg-[#d4c1a7] hover:text-[#2a1418] transition-all duration-500 uppercase tracking-[0.2em]"
-                    >
-                      Virar a Página ✨
-                    </Link>
+  <button
+  onClick={(e) => {
+    e.stopPropagation();
 
-                  </motion.div>
+    setTransitioning(true);
+
+    setTimeout(() => {
+      router.push(nextUrl);
+    }, 800);
+  }}
+  className="border border-[#d4c1a7] bg-[#2a1418]/70 text-[#f8ede8] px-10 py-4 rounded-full hover:bg-[#d4c1a7] hover:text-[#2a1418] transition-all duration-500 uppercase tracking-[0.2em]"
+>
+  Virar a Página ✨
+</button>
+
+</motion.div>
 
                 )}
 
@@ -243,6 +255,17 @@ export default function ChapterTemplate({
         </AnimatePresence>
 
       </div>
+      <AnimatePresence>
+  {transitioning && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6 }}
+      className="fixed inset-0 bg-[#050507] z-[9999]"
+    />
+  )}
+</AnimatePresence>
     </main>
   );
 }
