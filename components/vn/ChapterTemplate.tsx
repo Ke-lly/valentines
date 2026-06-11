@@ -37,6 +37,7 @@ export default function ChapterTemplate({
 }: ChapterTemplateProps) {
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [storyFinished, setStoryFinished] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
 
   const hasScript = script && script.length > 0;
@@ -132,14 +133,17 @@ export default function ChapterTemplate({
         shadow-[0_0_60px_rgba(120,30,60,0.25)]
       "
     >
-      <CinematicImage src={image} />
+     <CinematicImage
+  src={image}
+  onLoaded={() => setImageLoaded(true)}
+/> 
     </div>
   </motion.div>
 )}
 
         <AnimatePresence mode="wait">
 
-          {!storyFinished && currentLine && (
+          {!storyFinished && currentLine && imageLoaded && (
 
             <motion.div
               key={currentLineIndex}
