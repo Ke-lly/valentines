@@ -141,14 +141,14 @@ export default function Home() {
           Doze capítulos que contam a história do nosso amor
         </motion.p>
 
-        <motion.p
-  initial={{ opacity: 0, y: 15 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1.2, delay: 1.2 }}
-  className="mt-8 text-lg max-w-2xl text-[#f6d8e2] leading-relaxed italic mx-auto"
->
-  <TypewriterText text="“E assim, página após página, você virou a minha história favorita.”" />
-</motion.p>
+       <motion.p 
+         initial={{ opacity: 0, y: 15 }} 
+         animate={{ opacity: 1, y: 0 }} 
+         transition={{ duration: 1.2, delay: 1.2 }} 
+         className="mt-8 text-lg max-w-2xl text-[#f6d8e2] leading-relaxed italic mx-auto" 
+         > 
+         “E assim, página após página, você virou a minha história favorita.” 
+       </motion.p>
 
         {/* 🔥 BOTÃO NOVO */}
         <motion.div
