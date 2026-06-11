@@ -11,18 +11,21 @@ export default function Navbar() {
 
   // 🔓 sincroniza estado corretamente + escuta desbloqueio
   useEffect(() => {
-    const update = () => {
-      setLiberado(localStorage.getItem("jornadaConcluida") === "true");
-    };
+  const update = () => {
+    const value = localStorage.getItem("jornadaConcluida") === "true";
+    setLiberado(value);
+  };
 
-    update();
+  update();
 
-    window.addEventListener("jornada:liberada", update);
+  window.addEventListener("jornada:liberada", update);
+  window.addEventListener("storage", update);
 
-    return () => {
-      window.removeEventListener("jornada:liberada", update);
-    };
-  }, []);
+  return () => {
+    window.removeEventListener("jornada:liberada", update);
+    window.removeEventListener("storage", update);
+  };
+}, []);
 
   if (pathname === "/") return null;
 
