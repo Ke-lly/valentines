@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 interface Props {
@@ -10,20 +9,40 @@ interface Props {
 export default function CinematicImage({ src }: Props) {
   return (
     <motion.div
-      initial={{ scale: 1.1, opacity: 0 }}
+      initial={{ scale: 1.05, opacity: 0 }}
       whileInView={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 1.8 }}
-      className="relative w-full h-[700px] overflow-hidden rounded-[40px] mt-16"
+      transition={{ duration: 1.5 }}
+      className="
+        relative
+        w-full
+        mt-10 md:mt-16
+        rounded-[24px] md:rounded-[40px]
+        overflow-hidden
+        bg-[#1a0f15]
+        border border-[#6d3341]/30
+        shadow-[0_0_35px_rgba(122,30,70,0.20)]
+        flex
+        items-center
+        justify-center
+        p-2 md:p-4
+      "
     >
+      <img
+        src={src}
+        alt="Capítulo"
+        className="
+          w-full
+          h-auto
+          max-h-[75vh]
+          object-contain
+          rounded-[18px]
+          transition-transform
+          duration-700
+          hover:scale-[1.02]
+        "
+      />
 
-
-<img 
-  src={src} 
-  className="w-full h-full object-cover" // <-- Se estiver 'object-cover', ele corta a imagem para preencher.
-/>
-
-
-      <div className="absolute inset-0 bg-black/30" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none rounded-[24px] md:rounded-[40px]" />
     </motion.div>
   );
 }
