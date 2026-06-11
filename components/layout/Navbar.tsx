@@ -65,8 +65,8 @@ export default function Navbar() {
         {/* MOBILE */}
         <div className="flex md:hidden gap-4 text-[10px] uppercase tracking-widest text-[#cfc2b4]">
           <Link href="/archive">Arquivo</Link>
-          <LockedLink href="/galeria">Gal</LockedLink>
-          <LockedLink href="/carta">Cart</LockedLink>
+          <LockedLink href="/galeria">Galeria</LockedLink>
+          <LockedLink href="/carta">Carta</LockedLink>
         </div>
       </div>
     </nav>
