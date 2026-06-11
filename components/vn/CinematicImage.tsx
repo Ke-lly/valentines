@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface Props {
   src: string;
@@ -10,17 +11,20 @@ export default function CinematicImage({ src }: Props) {
   return (
     <motion.div
       key={src}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{
         duration: 0.8,
         ease: "easeOut",
       }}
       className="flex justify-center w-full"
     >
-      <img
+      <Image
         src={src}
         alt=""
+        width={1200}
+        height={1600}
+        priority
         draggable={false}
         className="
           block
