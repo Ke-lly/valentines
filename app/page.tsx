@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import TypewriterText from "@/components/vn/TypewriterText";
 
 export default function Home() {
   const [transition, setTransition] = useState(false);
@@ -141,15 +142,13 @@ export default function Home() {
         </motion.p>
 
         <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 1.2 }}
-          className="mt-8 text-lg max-w-2xl text-[#f6d8e2] leading-relaxed italic mx-auto"
-        >
-          "Algumas pessoas entram na nossa vida.
-          Você transformou a minha em um lugar
-          onde sempre vale a pena voltar."
-        </motion.p>
+  initial={{ opacity: 0, y: 15 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1.2, delay: 1.2 }}
+  className="mt-8 text-lg max-w-2xl text-[#f6d8e2] leading-relaxed italic mx-auto"
+>
+  <TypewriterText text="“E assim, página após página, você virou a minha história favorita.”" />
+</motion.p>
 
         {/* 🔥 BOTÃO NOVO */}
         <motion.div
