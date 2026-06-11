@@ -27,7 +27,7 @@ export default function ChapterEleven() {
       chapterNumber="XI"
       title="Você"
       subtitle="É impossível falar da nossa história sem falar do seu jeito."
-      image="/images/11.jpg"
+      image="/images/858.jpg"
       script={script}
       endingMessage="Talvez o meu lugar favorito sempre tenha sido ao seu lado."
       nextUrl="/story/chapter-12"
