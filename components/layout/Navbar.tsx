@@ -9,41 +9,42 @@ export default function Navbar() {
   const pathname = usePathname();
   const [liberado, setLiberado] = useState(false);
 
-  // 🔓 sincroniza estado corretamente + escuta desbloqueio
+  // 🔓 sincronização correta
   useEffect(() => {
-  const update = () => {
-    const value = localStorage.getItem("jornadaConcluida") === "true";
-    setLiberado(value);
-  };
+    const update = () => {
+      const value = localStorage.getItem("jornadaConcluida") === "true";
+      setLiberado(value);
+    };
 
-  update();
+    update();
 
-  window.addEventListener("jornada:liberada", update);
-  window.addEventListener("storage", update);
+    window.addEventListener("jornada:liberada", update);
+    window.addEventListener("storage", update);
 
-  return () => {
-    window.removeEventListener("jornada:liberada", update);
-    window.removeEventListener("storage", update);
-  };
-}, []);
+    return () => {
+      window.removeEventListener("jornada:liberada", update);
+      window.removeEventListener("storage", update);
+    };
+  }, []);
 
   if (pathname === "/") return null;
 
   const LockedLink = ({ href, children }: any) => {
     return (
-      <motion.div className="flex items-center gap-2 relative">
+      <div className="flex items-center gap-2">
         <Link
           href={liberado ? href : "#"}
           onClick={(e) => !liberado && e.preventDefault()}
           className={`transition ${
             liberado
               ? "hover:text-white"
-              : "opacity-40 blur-[1px] cursor-not-allowed"
+              : "opacity-40 cursor-not-allowed pointer-events-none"
           }`}
         >
           {children}
         </Link>
 
+        {/* 🔒 ICONE */}
         <AnimatePresence mode="wait">
           {!liberado ? (
             <motion.span
@@ -72,7 +73,7 @@ export default function Navbar() {
             </motion.span>
           )}
         </AnimatePresence>
-      </motion.div>
+      </div>
     );
   };
 
