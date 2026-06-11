@@ -3,38 +3,18 @@
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 
-export default function PageTransition({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const pathname = usePathname();
+export default function PageTransition({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname(); // Captura a rota atual
 
   return (
     <AnimatePresence mode="wait">
+      {/* A chave 'key={pathname}' avisa o Framer Motion que a página mudou e que ele deve rodar a animação */}
       <motion.div
-        key={pathname}
-        initial={{
-          opacity: 0,
-          y: 20,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-        }}
-        exit={{
-          opacity: 0,
-          y: -20,
-        }}
-        transition={{
-          duration: 0.8,
-          ease: "easeInOut",
-        }}
-        style={{
-          minHeight: "100vh",
-          background:
-            "radial-gradient(circle at top,#3a1025 0%,#0b0b10 60%,#050507 100%)",
-        }}
+        key={pathname} 
+        initial={{ opacity: 0, filter: "blur(10px)" }}
+        animate={{ opacity: 1, filter: "blur(0px)" }}
+        exit={{ opacity: 0, filter: "blur(10px)" }}
+        transition={{ duration: 0.6 }}
       >
         {children}
       </motion.div>
