@@ -113,16 +113,28 @@ export default function ChapterTemplate({
 
         </div>
 
-        {image && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
-            className="mt-10 rounded-[28px] overflow-hidden border border-[#5c2b39] shadow-[0_0_60px_rgba(120,30,60,0.25)] max-w-2xl mx-auto relative"
-          >
-            <CinematicImage src={image} />
-          </motion.div>
-        )}
+       {image && (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.96 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 1 }}
+    className="mt-10 flex justify-center"
+  >
+    <div
+      className="
+        inline-block
+        p-3
+        rounded-[30px]
+        bg-[#2a1418]/75
+        backdrop-blur-xl
+        border border-[#5c2b39]
+        shadow-[0_0_60px_rgba(120,30,60,0.25)]
+      "
+    >
+      <CinematicImage src={image} />
+    </div>
+  </motion.div>
+)}
 
         <AnimatePresence mode="wait">
 
