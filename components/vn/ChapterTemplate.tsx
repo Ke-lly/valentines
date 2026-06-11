@@ -7,51 +7,14 @@ import CinematicImage from "@/components/vn/CinematicImage";
 import ChapterEnding from "@/components/vn/ChapterEnding";
 import TypewriterText from "@/components/vn/TypewriterText";
 
-export type Line = {
-  speaker?: string;
-  text: string;
-};
-
-interface ChapterTemplateProps {
-  chapterNumber: string;
-  title: string;
-  subtitle: string;
-  image: string;
-  script: Line[];
-  endingMessage: string;
-  nextUrl: string;
-  prevUrl?: string;
-  isLast?: boolean;
-}
+// ... outras partes do código ...
 
 export default function ChapterTemplate({
-  chapterNumber,
-  title,
-  subtitle,
-  image,
-  script,
-  endingMessage,
-  nextUrl,
-  prevUrl,
-  isLast = false,
-}: ChapterTemplateProps) {
-  const [currentLineIndex, setCurrentLineIndex] = useState(0);
-  const [storyFinished, setStoryFinished] = useState(false);
-
-  const hasScript = script && script.length > 0;
-  const currentLine = hasScript ? script[currentLineIndex] : null;
-
-  const advanceStory = () => {
-    if (!hasScript || storyFinished) return;
-    if (currentLineIndex < script.length - 1) {
-      setCurrentLineIndex((prev) => prev + 1);
-    } else {
-      setStoryFinished(true);
-    }
-  };
+  // ... props ...
+}) {
+  // ... lógica de estado ...
 
   return (
-    // Removi o gradiente daqui para deixar o Layout gerenciar o fundo único
     <main
       onClick={advanceStory}
       className={`min-h-[80vh] px-6 md:px-20 pb-32 text-[#f8ede8] relative overflow-hidden select-none ${
@@ -59,15 +22,7 @@ export default function ChapterTemplate({
       }`}
     >
       <div className="max-w-3xl mx-auto relative z-10 pt-20">
-        <div>
-          <p className="uppercase tracking-[0.45em] text-sm text-[#d4c1a7]">
-            Capítulo {chapterNumber}
-          </p>
-          <h1 className="text-5xl md:text-7xl font-serif mt-3 text-[#fff7f5]">
-            {title}
-          </h1>
-          <p className="mt-4 text-[#cbb7ae] text-lg italic">{subtitle}</p>
-        </div>
+        {/* ... cabeçalho do capítulo ... */}
 
         {image && (
           <div className="mt-10 rounded-[28px] overflow-hidden border border-[#5c2b39] shadow-[0_0_60px_rgba(120,30,60,0.25)] max-w-2xl mx-auto relative">
@@ -83,11 +38,11 @@ export default function ChapterTemplate({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              // Altura fixa aqui para evitar que a página "pule" quando o texto muda
-              className="mt-10 bg-[#2a1418]/75 backdrop-blur-xl border border-[#5b2d39] rounded-[30px] p-7 md:p-9 shadow-2xl min-h-[220px]"
+              // A MUDANÇA ESTÁ AQUI: Centralizado, largura controlada e padding melhor
+              className="mt-10 max-w-xl mx-auto bg-[#2a1418]/75 backdrop-blur-xl border border-[#5b2d39] rounded-[30px] p-6 md:p-8 shadow-2xl min-h-[180px]"
             >
               {currentLine.speaker && (
-                <p className="uppercase tracking-[0.3em] text-sm text-[#d4c1a7] mb-4 font-semibold">
+                <p className="uppercase tracking-[0.3em] text-sm text-[#d4c1a7] mb-3 font-semibold">
                   {currentLine.speaker}
                 </p>
               )}
@@ -102,31 +57,7 @@ export default function ChapterTemplate({
           )}
         </AnimatePresence>
 
-        <AnimatePresence>
-          {storyFinished && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center mt-14"
-            >
-              <ChapterEnding message={endingMessage} />
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mt-10">
-                {prevUrl && (
-                  <Link href={prevUrl} className="uppercase tracking-[0.25em] text-[#b79b8d] hover:text-white transition">
-                    ← Capítulo anterior
-                  </Link>
-                )}
-                <Link
-                  href={nextUrl}
-                  onClick={() => isLast && localStorage.setItem("storyCompleted", "true")}
-                  className="bg-gradient-to-r from-[#7b1f3d] to-[#a33d58] px-10 py-4 rounded-full text-white font-serif text-lg shadow-xl hover:scale-105 transition-all"
-                >
-                  {isLast ? "Abrir a Carta ❤️" : "Virar a Página ✨"}
-                </Link>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* ... parte final da história ... */}
       </div>
     </main>
   );
