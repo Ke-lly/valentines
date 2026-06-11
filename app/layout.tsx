@@ -19,18 +19,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className="bg-[radial-gradient(circle_at_top,#3a1025_0%,#0b0b10_60%,#050507_100%)]">
+      <body className="bg-[#050507] text-[#ffe4e6]">
+        {/* Componentes fixos (não sofrem transição) */}
         <Navbar />
         <MusicPlayer />
         <GlowBackground />
         <GrainOverlay />
 
-      
-<main className="min-h-screen">
-  <PageTransition>
-    {children}
-  </PageTransition>
-</main>
+        {/* Container do Gradiente: 
+           Fica aqui fora para não piscar durante a troca de rotas.
+        */}
+        <div className="min-h-screen bg-[radial-gradient(circle_at_top,#3a1025_0%,#0b0b10_60%,#050507_100%)]">
+          <main className="min-h-screen">
+            <PageTransition>
+              {children}
+            </PageTransition>
+          </main>
+        </div>
       </body>
     </html>
   );
