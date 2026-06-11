@@ -9,14 +9,19 @@ export default function TypewriterText({ text }: { text: string }) {
     let i = 0;
 
     const interval = setInterval(() => {
-      setDisplayed(text.slice(0, i));
+      setDisplayed(text.slice(0, i + 1));
       i++;
 
-      if (i > text.length) clearInterval(interval);
-    }, 25);
+      if (i >= text.length) clearInterval(interval);
+    }, 30);
 
     return () => clearInterval(interval);
   }, [text]);
 
-  return <span>{displayed}</span>;
+  return (
+    <span>
+      {displayed}
+      <span className="animate-pulse">|</span>
+    </span>
+  );
 }
