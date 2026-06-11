@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface Props {
   src: string;
@@ -12,13 +13,17 @@ export default function CinematicImage({ src }: Props) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
-      className="relative w-full h-[700px] overflow-hidden rounded-[40px] mt-16"
+      // Use aspect-ratio em vez de altura fixa para manter a proporção
+      className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden rounded-[40px] mt-16"
     >
-      <img
+      <Image
         src={src}
-        alt=""
+        alt="Memória"
+        fill
+        priority // Carrega a imagem imediatamente
+        sizes="(max-width: 768px) 100vw, 800px"
+        className="object-cover select-none"
         draggable={false}
-        className="block w-full h-full object-cover select-none"
       />
 
       <div className="absolute inset-0 bg-black/30 pointer-events-none" />
