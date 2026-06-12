@@ -7,7 +7,7 @@ const chaptersData = [
   {
     id: 1,
     title: "O Começo",
-    desc: "Toda história inesquecível começa com um simples encontro.",
+    desc: "Toda história inesquecível começa de um jeito simples.",
   },
   {
     id: 2,
@@ -26,8 +26,8 @@ const chaptersData = [
   },
   {
     id: 5,
-    title: "Nossa Trilha Sonora",
-    desc: "Cada música guarda um pedaço da nossa história.",
+    title: "Sem Trilha Sonora",
+    desc: "Porque sua risada sempre foi minha música favorita.",
   },
   {
     id: 6,
@@ -46,23 +46,23 @@ const chaptersData = [
   },
   {
     id: 9,
-    title: "Promessas",
-    desc: "Algumas foram ditas, outras apenas sentidas.",
+    title: "Planos",
+    desc: "Alguns sonhos começam com uma simples pergunta.",
   },
   {
     id: 10,
-    title: "Planos",
-    desc: "Sonhos que agora pertencem a nós dois.",
+    title: "Hoje",
+    desc: "Tudo nos trouxe até esse momento.",
   },
   {
     id: 11,
-    title: "Hoje",
-    desc: "Tudo o que vivemos nos trouxe exatamente até aqui.",
+    title: "Você",
+    desc: "O seu jeito de me encantar.",
   },
   {
     id: 12,
     title: "12 de Junho",
-    desc: "Uma coleção de memórias criada especialmente para você.",
+    desc: "Uma pequena coleção de memórias.",
   },
 ];
 
